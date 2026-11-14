@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فريق أسدام التطوعي | Asdam Volunteering Team</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        asdam: {
+                            teal: '#4fb4a2',
+                            tealLight: '#8ad4c7',
+                            coral: '#f97c7c',
+                            pinkLight: '#ffbaba',
+                            bgSoft: '#f7faf9',
+                            dark: '#1e3834',
+                        }
+                    },
+                    fontFamily: {
+                        tajawal: ['Tajawal', 'Swissra', 'sans-serif'],
+                        ibm: ['IBM Plex Sans Arabic', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            background-color: #f7faf9;
+            color: #2d3748;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4fb4a2;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b9081;
+        }
+
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(138, 212, 199, 0.3);
+        }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Filter Tab Active State */
+        .tab-btn.active {
+            background-color: #4fb4a2;
+            color: white;
+            box-shadow: 0 4px 14px rgba(79, 180, 162, 0.35);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+        .animate-float {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .glow-teal {
+            box-shadow: 0 10px 25px -5px rgba(79, 180, 162, 0.35);
+        }
+    </style>
+</head>
+<body class="relative antialiased selection:bg-asdam-tealLight selection:text-asdam-dark">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-asdam-dark text-white text-xs md:text-sm py-2 px-4 text-center flex justify-center items-center gap-2">
+        <span class="bg-asdam-coral text-white text-xs px-2.5 py-0.5 rounded-full font-bold">مبادرة جديدة</span>
+        <span>تطلع على التغطيات والمشاريع الرسمية لفريق أسدام التطوعي</span>
+        <a href="#programs" class="underline hover:text-asdam-tealLight transition-colors font-medium me-1">استعرض المبادرات</a>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-40 glass-nav border-b border-asdam-tealLight/20 transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Logo Section -->
+                <a href=""C:\Users\عهد\Downloads\6034839946566242653.jpg" class="flex items-center gap-3 group">
+                    <div class="relative w-12 h-14 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-asdam-tealLight/40 rounded-full blur-sm group-hover:scale-110 transition-transform"></div>
+                        <img src = "C:\Users\عهد\Downloads\6034839946566242653.jpg" alt = "شعار أسدام" class="w-12 h-12 object-contain" />
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-3xl font-extrabold font-heading text-asdam-coral tracking-tight leading-none group-hover:text-asdam-dark transition-colors">
+                            أَسْـدَام
+                        </span>
+                        <span class="text-[10px] text-asdam-dark/75 font-bold tracking-widest mt-1">
+                            فريق أسدام التطوعي
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-reverse space-x-8 font-medium text-gray-700">
+                    <a href="#about" class="hover:text-asdam-teal transition-colors py-1">الرؤية والرسالة</a>
+                    <a href="#stats" class="hover:text-asdam-teal transition-colors py-1">إحصائياتنا</a>
+                    <a href="#programs" class="hover:text-asdam-teal transition-colors py-1">البرامج والمبادرات</a>
+                    <a href="#gallery" class="hover:text-asdam-teal transition-colors py-1">معرض الوسائط</a>
+                    <a href="#testimonials" class="hover:text-asdam-teal transition-colors py-1">قالوا عن أسدام</a>
+                </nav>
+
+                <!-- Action CTA & Mobile Trigger -->
+                <div class="flex items-center gap-4">
+                    <a href="#join" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-asdam-coral to-[#f76464] text-white px-6 py-2.5 rounded-full font-heading font-bold shadow-md hover:shadow-lg hover:opacity-95 transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-hand-holding-heart me-1"></i>
+                        <span>تطوع معنا</span>
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-gray-600 hover:text-asdam-teal hover:bg-asdam-tealLight/20 focus:outline-none" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3 shadow-xl">
+            <a href="#about" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-asdam-tealLight/20 hover:text-asdam-teal">الرؤية والرسالة</a>
+            <a href="#stats" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-asdam-tealLight/20 hover:text-asdam-teal">إحصائياتنا</a>
+            <a href="#programs" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-asdam-tealLight/20 hover:text-asdam-teal">البرامج والمبادرات</a>
+            <a href="#gallery" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-asdam-tealLight/20 hover:text-asdam-teal">معرض الوسائط</a>
+            <a href="#testimonials" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-asdam-tealLight/20 hover:text-asdam-teal">قالوا عن أسدام</a>
+            <a href="#join" onclick="toggleMobileMenu()" class="block text-center bg-asdam-coral text-white py-3 rounded-xl font-bold shadow-md mt-4">تطوع معنا الآن</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
+        <div class="absolute top-10 right-10 w-96 h-96 bg-asdam-tealLight/30 rounded-full filter blur-3xl -z-10 animate-float"></div>
+        <div class="absolute bottom-10 left-10 w-96 h-96 bg-asdam-pinkLight/40 rounded-full filter blur-3xl -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+                <!-- Hero Content -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-right">
+                    <div class="inline-flex items-center gap-2 bg-asdam-tealLight/20 text-asdam-dark border border-asdam-tealLight/40 px-4 py-1.5 rounded-full text-sm font-semibold">
+                        <i class="fa-solid fa-seedling text-asdam-teal"></i>
+                        <span>عطاءٌ يتجدد، وأثرٌ يدوم</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-asdam-dark leading-tight">
+                        نبني المستقبل بـ <span class="text-asdam-coral underline decoration-asdam-pinkLight underline-offset-8">سواعد شبابنا</span> لنترك أثرًا مستدامًا
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-gray-600 font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        فريق أسدام التطوعي يُسخّر الطاقات الشبابية لتقديم مبادرات مجتمعية نوعية، موثّقة ومتاحة مباشرة للمشاهدة والمشاركة عبر أرشيفنا الميداني.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#programs" class="w-full sm:w-auto bg-asdam-teal hover:bg-[#3ea08f] text-white font-heading font-bold text-lg px-8 py-4 rounded-2xl shadow-lg glow-teal hover:-translate-y-1 transition-all text-center flex items-center justify-center gap-2">
+                            <span>استعرض المبادرات والمشاريع</span>
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+                        <a href="#join" class="w-full sm:w-auto bg-white hover:bg-asdam-bgSoft text-asdam-dark font-heading font-bold text-lg px-8 py-4 rounded-2xl border-2 border-asdam-tealLight/40 shadow-sm hover:border-asdam-teal transition-all text-center">
+                            انضم إلينا
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Visual Drive Preview Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto w-full max-w-md lg:max-w-none">
+                        <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-asdam-dark text-white group cursor-pointer" onclick="openDriveModal('1YQGZnLLgCOPUUdS4oZpPN6tbCS4OR2zu', 'مبادرة الاختبارات - تغطية مباشرة')">
+                            <img src="https://drive.google.com/thumbnail?id=1YQGZnLLgCOPUUdS4oZpPN6tbCS4OR2zu&sz=w800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80';" alt="مبادرة الاختبارات" class="w-full h-96 object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-asdam-dark via-asdam-dark/30 to-transparent flex flex-col justify-end p-6">
+                                <span class="bg-asdam-coral text-white text-xs px-3 py-1 rounded-full font-bold mb-2 inline-block w-fit">مبادرة مميزة</span>
+                                <h3 class="text-2xl font-bold font-heading">مبادرة الاختبارات</h3>
+                            </div>
+                        </div>
+
+                        <!-- Floating Stat Card -->
+                        <div class="absolute -bottom-6 -left-6 z-20 glass-card p-4 rounded-2xl shadow-xl flex items-center gap-4 border border-asdam-tealLight/50 animate-float">
+                            <div class="w-12 h-12 bg-asdam-tealLight/60 rounded-xl flex items-center justify-center text-asdam-teal font-bold text-xl">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 font-medium">عائلة أسدام</p>
+                                <p class="text-lg font-bold font-heading text-asdam-dark">+70 متطوع</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-asdam-teal font-bold text-sm tracking-widest uppercase">من نحن</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-asdam-dark mt-2">
+                    نهجنا في صناعة الأثر والتمكين
+                </h2>
+                <div class="w-20 h-1.5 bg-gradient-to-r from-asdam-teal to-asdam-coral mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Vision Card -->
+                <div class="bg-asdam-bgSoft p-8 rounded-3xl border border-asdam-tealLight/30 hover:border-asdam-teal transition-all duration-300 hover:shadow-xl">
+                    <div class="w-16 h-16 bg-asdam-tealLight/30 text-asdam-teal rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold font-heading text-asdam-dark mb-4">رؤيتنـا</h3>
+                    <p class="text-gray-600 leading-relaxed font-light">
+                        أن نكون الفريق التطوعي الرائد والمحفز الأول للشباب في تقديم مبادرات تنموية ومجتمعية مستدامة تحقق أهداف التنمية المستدامة.
+                    </p>
+                </div>
+
+                <!-- Mission Card -->
+                <div class="bg-asdam-bgSoft p-8 rounded-3xl border border-asdam-pinkLight/50 hover:border-asdam-coral transition-all duration-300 hover:shadow-xl">
+                    <div class="w-16 h-16 bg-asdam-pinkLight/40 text-asdam-coral rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold font-heading text-asdam-dark mb-4">رسالتنـا</h3>
+                    <p class="text-gray-600 leading-relaxed font-light">
+                        استثمار طاقات الشباب وتوجيهها نحو خدمة المجتمع عبر بيئة تطوعية متميزة واحتضان الأفكار المبتكرة وتنفيذها بكفاءة عالية.
+                    </p>
+                </div>
+
+                <!-- Values Card -->
+                <div class="bg-asdam-bgSoft p-8 rounded-3xl border border-asdam-tealLight/30 hover:border-asdam-teal transition-all duration-300 hover:shadow-xl">
+                    <div class="w-16 h-16 bg-asdam-tealLight/30 text-asdam-dark rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold font-heading text-asdam-dark mb-4">قيمنا السامية</h3>
+                    <ul class="space-y-3 text-gray-600 font-light">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-asdam-teal"></i> <span>الاستدامة والأثر المستمر</span></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-asdam-teal"></i> <span>العطاء والعمل الجماعي</span></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-asdam-teal"></i> <span>الابتكار والشفافية</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section id="stats" class="py-16 bg-gradient-to-br from-asdam-dark to-[#132724] text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-3xl font-extrabold font-heading text-asdam-tealLight">أرقام تتحدث عن الأثر</h2>
+                <p class="text-gray-300 mt-2 font-light">إنجازات أسدام الميدانية بفضل طاقات شبابها</p>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm">
+                    <div class="text-3xl sm:text-4xl font-extrabold font-heading text-asdam-tealLight mb-1">+70</div>
+                    <div class="text-sm text-gray-300 font-medium">متطوع ومتطوعة</div>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm">
+                    <div class="text-3xl sm:text-4xl font-extrabold font-heading text-asdam-coral mb-1">+1000</div>
+                    <div class="text-sm text-gray-300 font-medium">ساعة تطوعية</div>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm">
+                    <div class="text-3xl sm:text-4xl font-extrabold font-heading text-asdam-tealLight mb-1">+30</div>
+                    <div class="text-sm text-gray-300 font-medium">مستفيد مباشر</div>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm">
+                    <div class="text-3xl sm:text-4xl font-extrabold font-heading text-asdam-coral mb-1">+10</div>
+                    <div class="text-sm text-gray-300 font-medium">مبادرة وفعالية منجزة</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs & Initiatives Section with Direct Drive Links & Previews -->
+    <section id="programs" class="py-20 bg-asdam-bgSoft">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-asdam-teal font-bold text-sm tracking-widest uppercase">مبادراتنا الميدانية</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-asdam-dark mt-2">
+                        برامج ومبادرات فريق أسدام
+                    </h2>
+                </div>
+                <p class="text-gray-600 max-w-md mt-4 md:mt-0 font-light">
+                    انقر على أي مبادرة لمعاينة المستند.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- Program 1: مبادرة الاختبارات -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-48 overflow-hidden bg-asdam-dark">
+                            <img src="https://drive.google.com/thumbnail?id=1YQGZnLLgCOPUUdS4oZpPN6tbCS4OR2zu&sz=w800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=700&q=80';" alt="مبادرة الاختبارات" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-asdam-coral text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+                                دعم وتعليم
+                            </span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold font-heading text-asdam-dark mb-2 group-hover:text-asdam-teal transition-colors">
+                                مبادرة الاختبارات
+                            </h3>
+                            <p class="text-gray-600 text-xs leading-relaxed font-light mb-2">
+                                تهيئة الطلاب ونشر الأجواء المحفزة وتوزيع الوجبات والمستلزمات في فترة الاختبارات.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-2 border-t border-gray-50 flex gap-2">
+                        <button onclick="openDriveModal('1YQGZnLLgCOPUUdS4oZpPN6tbCS4OR2zu', 'مبادرة الاختبارات')" class="flex-1 bg-asdam-teal hover:bg-[#3ea08f] text-white font-bold py-2.5 px-3 rounded-xl text-xs transition-all flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-eye"></i>
+                            <span>معاينة</span>
+                        </button>
+                        <a href="https://drive.google.com/file/d/1YQGZnLLgCOPUUdS4oZpPN6tbCS4OR2zu/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="bg-asdam-tealLight/20 hover:bg-asdam-tealLight text-asdam-dark font-bold py-2.5 px-3 rounded-xl text-xs transition-all flex items-center justify-center" title="فتح في نافذة جديدة">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 2: هاكاثون نهج -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-48 overflow-hidden bg-asdam-dark">
+                            <img src="https://drive.google.com/thumbnail?id=1JKYDh-1GSVKv6d6KPiiuJ3khnqVrkzAV&sz=w800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=700&q=80';" alt="هاكاثون نهج" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-asdam-teal text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+                                ابتكار وتقنية
+                            </span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold font-heading text-asdam-dark mb-2 group-hover:text-asdam-teal transition-colors">
+                                هاكاثون نهج
+                            </h3>
+                            <p class="text-gray-600 text-xs leading-relaxed font-light mb-2">
+                                التجمع التنافسي المبتكر لتطوير حلول برمجية ومجتمعية ذكية لخدمة القطاع غير الربحي.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-2 border-t border-gray-50 flex gap-2">
+                        <button onclick="openDriveModal('1JKYDh-1GSVKv6d6KPiiuJ3khnqVrkzAV', 'هاكاثون نهج')" class="flex-1 bg-asdam-teal hover:bg-[#3ea08f] text-white font-bold py-2.5 px-3 rounded-xl text-xs transition-all flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-eye"></i>
+                            <span>معاينة</span>
+                        </button>
+                        <a href="https://drive.google.com/file/d/1JKYDh-1GSVKv6d6KPiiuJ3khnqVrkzAV/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="bg-asdam-tealLight/20 hover:bg-asdam-tealLight text-asdam-dark font-bold py-2.5 px-3 rounded-xl text-xs transition-all flex items-center justify-center" title="فتح في نافذة جديدة">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 3: اليوم العالمي للسكري -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-48 overflow-hidden bg-asdam-dark">
+                            <img src="https://drive.google.com/thumbnail?id=1qNsf_hrs0_P8rTu4kT5KP11BZ1YhUUJN&sz=w800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=700&q=80';" alt="اليوم العالمي للسكري" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-asdam-dark text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+                                صحة وتوعية
+                            </span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold font-heading text-asdam-dark mb-2 group-hover:text-asdam-teal transition-colors">
+                                اليوم العالمي للسكري
+                            </h3>
+                            <p class="text-gray-600 text-xs leading-relaxed font-light mb-2">
+                                الفحوصات الطبية التوعوية والتثقيف الصحي الميداني للوقاية من مرض السكري.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-2 border-t border-gray-50 flex gap-2">
+                        <button onclick="openDriveModal('1qNsf_hrs0_P8rTu4kT5KP11BZ1YhUUJN', 'اليوم العالمي للسكري')" class="flex-1 bg-asdam-teal hover:bg-[#3ea08f] text-white font-bold py-2.5 px-3 rounded-xl text-xs transition-all flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-eye"></i>
+                            <span>معاينة</span>
+                        </button>
+                        <a href="https://drive.google.com/file/d/1qNsf_hrs0_P8rTu4kT5KP11BZ1YhUUJN/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="bg-asdam-tealLight/20 hover:bg-asdam-tealLight text-asdam-dark font-bold py-2.5 px-3 rounded-xl text-xs transition-all flex items-center justify-center" title="فتح في نافذة جديدة">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Program 4: Games Day -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-48 overflow-hidden bg-asdam-dark">
+                            <img src="https://drive.google.com/thumbnail?id=1_uuEgTyO7VjLCcvpigNa40buFJyVsFyv&sz=w800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=700&q=80';" alt="Games Day" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-asdam-pinkLight text-asdam-dark font-extrabold text-xs px-3 py-1 rounded-full shadow">
+                                أنشطة وتفاعل
+                            </span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-lg font-bold font-heading text-asdam-dark mb-2 group-hover:text-asdam-coral transition-colors">
+                                فعالية Games Day
+                            </h3>
+                            <p class="text-gray-600 text-xs leading-relaxed font-light mb-2">
+                                يوم مفتوح للألعاب المسلية والمنافسات التفاعلية لتعزيز روح الفريق والبهجة بين الشباب.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-5 pb-5 pt-2 border-t border-gray-50 flex gap-2">
+                        <button onclick="openDriveModal('1_uuEgTyO7VjLCcvpigNa40buFJyVsFyv', 'Games Day')" class="flex-1 bg-asdam-teal hover:bg-[#3ea08f] text-white font-bold py-2.5 px-3 rounded-xl text-xs transition-all flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-eye"></i>
+                            <span>معاينة</span>
+                        </button>
+                        <a href="https://drive.google.com/file/d/1_uuEgTyO7VjLCcvpigNa40buFJyVsFyv/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="bg-asdam-tealLight/20 hover:bg-asdam-tealLight text-asdam-dark font-bold py-2.5 px-3 rounded-xl text-xs transition-all flex items-center justify-center" title="فتح في نافذة جديدة">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Gallery Section (Videos & Photos Archive) -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-asdam-teal font-bold text-sm tracking-widest uppercase">أرشيف التغطيات الرسمية</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-asdam-dark mt-2">
+                    معرض الصور والمقاطع المرئية
+                </h2>
+                <p class="text-gray-600 mt-2 font-light">تصفح المقاطع والصور الموثقة لمبادرات أسدام</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <button class="tab-btn active px-6 py-2 rounded-full text-sm font-bold border border-gray-200 transition-all" onclick="filterGallery('all')">الكل</button>
+                <button class="tab-btn px-6 py-2 rounded-full text-sm font-bold border border-gray-200 text-gray-600 hover:border-asdam-teal transition-all" onclick="filterGallery('videos')">مقاطع الفيديو</button>
+                <button class="tab-btn px-6 py-2 rounded-full text-sm font-bold border border-gray-200 text-gray-600 hover:border-asdam-teal transition-all" onclick="filterGallery('photos')">ملفات الصور</button>
+            </div>
+
+            <!-- Media Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+
+                <!-- Video 1: اليوم العالمي لسرطان الثدي (مقطع) -->
+                <div class="gallery-item videos relative rounded-2xl overflow-hidden shadow-md group h-72 cursor-pointer bg-asdam-dark" onclick="openDriveModal('1PnrVLm0h49YtJcmz6fDw-W5IREFegczz', 'اليوم العالمي لسرطان الثدي (مقطع)')">
+                    <img src="https://drive.google.com/thumbnail?id=1PnrVLm0h49YtJcmz6fDw-W5IREFegczz&sz=w800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=700&q=80';" alt="اليوم العالمي لسرطان الثدي" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80">
+                    <div class="absolute inset-0 bg-asdam-dark/40 flex items-center justify-center">
+                        <div class="w-16 h-16 bg-asdam-coral text-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform">
+                            <i class="fa-solid fa-play text-xl ms-1"></i>
+                        </div>
+                    </div>
+                    <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/85 to-transparent text-white">
+                        <h4 class="font-bold font-heading text-base mt-1">مقطع اليوم العالمي لسرطان الثدي</h4>
+                    </div>
+                </div>
+
+                <!-- Video 2: اليوم الوطني (مقطع) -->
+                <div class="gallery-item videos relative rounded-2xl overflow-hidden shadow-md group h-72 cursor-pointer bg-asdam-dark" onclick="openDriveModal('1FpaziA0vzItTC1wjGiPqa6d2Q4UjMHQC', 'تغطية اليوم الوطني (مقطع)')">
+                    <img src="https://drive.google.com/thumbnail?id=1FpaziA0vzItTC1wjGiPqa6d2Q4UjMHQC&sz=w800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532629345422-7515f3d16bb9?auto=format&fit=crop&w=700&q=80';" alt="اليوم الوطني" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80">
+                    <div class="absolute inset-0 bg-asdam-dark/40 flex items-center justify-center">
+                        <div class="w-16 h-16 bg-asdam-teal text-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform">
+                            <i class="fa-solid fa-play text-xl ms-1"></i>
+                        </div>
+                    </div>
+                    <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/85 to-transparent text-white">
+                        <h4 class="font-bold font-heading text-base mt-1">تغطية احتفال اليوم الوطني</h4>
+                    </div>
+                </div>
+
+                <!-- Photo File 1: مبادرة الاختبارات -->
+                <div class="gallery-item photos relative rounded-2xl overflow-hidden shadow-md group h-72 cursor-pointer bg-asdam-dark" onclick="openDriveModal('1YQGZnLLgCOPUUdS4oZpPN6tbCS4OR2zu', 'مبادرة الاختبارات')">
+                    <img src="https://drive.google.com/thumbnail?id=1YQGZnLLgCOPUUdS4oZpPN6tbCS4OR2zu&sz=w800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=700&q=80';" alt="مبادرة الاختبارات" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-asdam-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <h4 class="text-lg font-bold font-heading">مبادرة الاختبارات</h4>
+                    </div>
+                </div>
+
+                <!-- Photo File 2: هاكاثون نهج -->
+                <div class="gallery-item photos relative rounded-2xl overflow-hidden shadow-md group h-72 cursor-pointer bg-asdam-dark" onclick="openDriveModal('1JKYDh-1GSVKv6d6KPiiuJ3khnqVrkzAV', 'هاكاثون نهج')">
+                    <img src="https://drive.google.com/thumbnail?id=1JKYDh-1GSVKv6d6KPiiuJ3khnqVrkzAV&sz=w800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=700&q=80';" alt="هاكاثون نهج" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-asdam-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <h4 class="text-lg font-bold font-heading">هاكاثون نهج</h4>
+                    </div>
+                </div>
+
+                <!-- Photo File 3: اليوم العالمي للسكري -->
+                <div class="gallery-item photos relative rounded-2xl overflow-hidden shadow-md group h-72 cursor-pointer bg-asdam-dark" onclick="openDriveModal('1qNsf_hrs0_P8rTu4kT5KP11BZ1YhUUJN', 'اليوم العالمي للسكري')">
+                    <img src="https://drive.google.com/thumbnail?id=1qNsf_hrs0_P8rTu4kT5KP11BZ1YhUUJN&sz=w800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=700&q=80';" alt="اليوم العالمي للسكري" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-asdam-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <h4 class="text-lg font-bold font-heading">اليوم العالمي للسكري</h4>
+                    </div>
+                </div>
+
+                <!-- Photo File 4: Games Day -->
+                <div class="gallery-item photos relative rounded-2xl overflow-hidden shadow-md group h-72 cursor-pointer bg-asdam-dark" onclick="openDriveModal('1_uuEgTyO7VjLCcvpigNa40buFJyVsFyv', 'Games Day')">
+                    <img src="https://drive.google.com/thumbnail?id=1_uuEgTyO7VjLCcvpigNa40buFJyVsFyv&sz=w800" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=700&q=80';" alt="Games Day" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-asdam-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <h4 class="text-lg font-bold font-heading">فعالية Games Day</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 bg-asdam-bgSoft">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-asdam-coral font-bold text-sm tracking-widest uppercase">أصوات من أسدام</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-asdam-dark mt-2">
+                    ماذا يقول متطوعونا؟
+                </h2>
+                <div class="w-16 h-1 bg-asdam-coral mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 relative">
+                    <i class="fa-solid fa-quote-right text-4xl text-asdam-tealLight/40 absolute top-6 left-6"></i>
+                    <p class="text-gray-600 font-light leading-relaxed mb-6 relative z-10">
+                        "انضمامي لفريق أسدام أتاح لي فرصًا حقيقية للتأثير وإدارة الفعاليات الميدانية باحترافية وشغف."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div>
+                            <h4 class="font-bold font-heading text-asdam-dark">سارة الأحمري</h4>
+                            <span class="text-xs text-gray-400">قائدة لجنة العلاقات العامة</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 relative">
+                    <i class="fa-solid fa-quote-right text-4xl text-asdam-pinkLight/60 absolute top-6 left-6"></i>
+                    <p class="text-gray-600 font-light leading-relaxed mb-6 relative z-10">
+                        "الروح الأخوية والعمل بروح الفريق الواحد في أسدام تجعل كل مبادرة تجربة إنسانية ملهمة."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div>
+                            <h4 class="font-bold font-heading text-asdam-dark">عهد العتيبي</h4>
+                            <span class="text-xs text-gray-400">متطوع ميداني وتقني</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 relative">
+                    <i class="fa-solid fa-quote-right text-4xl text-asdam-tealLight/40 absolute top-6 left-6"></i>
+                    <p class="text-gray-600 font-light leading-relaxed mb-6 relative z-10">
+                        "أسدام منصة حقيقية لتمكين الشباب، استطعت من خلالها نقل أفكاري إلى مشاريع واقعية تنفع المجتمع."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div>
+                            <h4 class="font-bold font-heading text-asdam-dark">ريم الشمري</h4>
+                            <span class="text-xs text-gray-400">منسقة البرامج</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us Section -->
+    <section id="join" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-asdam-teal to-[#3b9b8b] rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
+                <div class="relative z-10 grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-5 text-center lg:text-right space-y-4">
+                        <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full font-bold">الانضمام للفريق</span>
+                        <h2 class="text-3xl font-extrabold font-heading">سجّل معنا وصنع الأثر مع أسدام</h2>
+                        <p class="text-teal-50 text-sm font-light">
+                            نرحب بكافة التخصصات والمهارات الراغبة في صناعة تغيير ملموس في مجتمعنا.
+                        </p>
+                    </div>
+
+                    <div class="lg:col-span-7 bg-white text-asdam-dark p-6 sm:p-8 rounded-2xl shadow-lg">
+                        <form id="join-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 mb-1">الاسم الثلاثي</label>
+                                    <input type="text" required placeholder="أدخل اسمك الكريم" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-asdam-teal text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 mb-1">رقم التواصل</label>
+                                    <input type="tel" required placeholder="05xxxxxxxx" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-asdam-teal text-sm">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1">المجال التطوعي المفضل</label>
+                                <select class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-asdam-teal text-sm text-gray-700">
+                                    <option>التنظيم والتنفيذ الميداني</option>
+                                    <option>التغطية الإعلامية والتصوير</option>
+                                    <option>التصميم وإدارة المحتوى</option>
+                                    <option>التدريب وإلقاء الورش</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="w-full bg-asdam-coral hover:bg-[#f76464] text-white font-heading font-bold py-3 rounded-xl shadow-md transition-all">
+                                إرسال طلب الانضمام
+                            </button>
+                        </form>
+
+                        <div id="form-success-msg" class="hidden text-center py-6">
+                            <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <h4 class="font-bold text-lg font-heading text-asdam-dark">تم استلام طلبك بنجاح!</h4>
+                            <p class="text-xs text-gray-500 mt-1">سيتواصل معك فريق الاستقطاب في أسدام قريبًا.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-asdam-dark text-white pt-16 pb-8 border-t border-asdam-teal/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-gray-700/60">
+                <div class="space-y-4">
+                    <span class="text-3xl font-extrabold font-heading text-asdam-coral">أَسْـدَام</span>
+                    <p class="text-gray-400 text-xs leading-relaxed font-light">
+                        فريق تطوعي شبابي يطمح لتمكين المجتمع واحتضان المبادرات ذات الأثر المستدام.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold font-heading text-asdam-tealLight mb-4 text-sm">روابط سريعة</h4>
+                    <ul class="space-y-2 text-xs text-gray-300 font-light">
+                        <li><a href="#about" class="hover:text-asdam-coral transition-colors">عن الفريق</a></li>
+                        <li><a href="#programs" class="hover:text-asdam-coral transition-colors">المبادرات والمشاريع</a></li>
+                        <li><a href="#gallery" class="hover:text-asdam-coral transition-colors">معرض الوسائط</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold font-heading text-asdam-tealLight mb-4 text-sm">التواصل المباشر</h4>
+                    <ul class="space-y-3 text-xs text-gray-300 font-light">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-asdam-coral"></i> <span>info@asdam-volunteer.org</span></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-asdam-coral"></i> <span>المملكة العربية السعودية</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold font-heading text-asdam-tealLight mb-4 text-sm">تابعونا</h4>
+                    <div class="flex items-center gap-3 mt-2">
+                        <a href="https://x.com/asdamteam?s=11&t=OZscvYcGj7AIUd6elR6gnw" class="w-9 h-9 rounded-full bg-white/10 hover:bg-asdam-coral text-white flex items-center justify-center transition-all"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 text-center text-xs text-gray-500 font-light flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p>جميع الحقوق محفوظة © فريق أسدام التطوعي</p>
+                <p>صنع بشغف لإبراز أثر المتطوعين</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Google Drive File & Video Preview Modal -->
+    <div id="drive-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="relative w-full max-w-4xl bg-asdam-dark rounded-3xl overflow-hidden shadow-2xl border border-white/20">
+            <!-- Modal Header -->
+            <div class="p-4 bg-asdam-dark flex items-center justify-between border-b border-white/10 text-white">
+                <h3 id="drive-modal-title" class="font-heading font-bold text-base flex items-center gap-2">
+                    <i class="fa-brands fa-google-drive text-asdam-tealLight"></i>
+                    <span>معاينة Google Drive</span>
+                </h3>
+                <div class="flex items-center gap-3">
+                    <a id="drive-external-link" href="#" target="_blank" rel="noopener noreferrer" class="text-xs bg-asdam-teal hover:bg-[#3ea08f] text-white px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1 font-bold">
+                        <span>فتح في نافذة جديدة</span>
+                        <i class="fa-solid fa-up-right-from-square"></i>
+                    </a>
+                    <button onclick="closeDriveModal()" class="text-gray-400 hover:text-white text-2xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10">
+                        &times;
+                    </button>
+                </div>
+            </div>
+            <!-- Modal Body (Google Drive Preview iframe) -->
+            <div class="relative w-full h-[75vh] bg-black">
+                <iframe id="drive-iframe" class="w-full h-full border-0" src="" title="Google Drive Preview" allow="autoplay"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Controls -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Open Google Drive Preview Modal directly using File ID
+        function openDriveModal(fileId, title) {
+            const modal = document.getElementById('drive-modal');
+            const modalTitle = document.getElementById('drive-modal-title');
+            const iframe = document.getElementById('drive-iframe');
+            const externalLink = document.getElementById('drive-external-link');
+
+            const previewUrl = `https://drive.google.com/file/d/${fileId}/preview`;
+            const shareUrl = `https://drive.google.com/file/d/${fileId}/view?usp=sharing`;
+
+            modalTitle.innerHTML = `<i class="fa-brands fa-google-drive text-asdam-tealLight"></i> <span>${title}</span>`;
+            iframe.src = previewUrl;
+            externalLink.href = shareUrl;
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDriveModal() {
+            const modal = document.getElementById('drive-modal');
+            const iframe = document.getElementById('drive-iframe');
+            iframe.src = '';
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Filter Media Gallery
+        function filterGallery(category) {
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const items = document.querySelectorAll('.gallery-item');
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Form Submission
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            document.getElementById('join-form').classList.add('hidden');
+            document.getElementById('form-success-msg').classList.remove('hidden');
+        }
+
+        // Close Modal on ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeDriveModal();
+        });
+    </script>
+</body>
+</html>
